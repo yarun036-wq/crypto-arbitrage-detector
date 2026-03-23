@@ -111,7 +111,15 @@ build_windows.bat
 
 ```text
 USD-normalized arbitrage opportunities
-  BTC/USD: buy on Upbit (South Korea) at $..., sell on bitFlyer (Japan) at $..., spread $...
+  BTC/USD: buy on Upbit (South Korea) at $60434.27, sell on bitFlyer (Japan) at $60783.89, spread $349.61 (57.85 bps), size 1.00
+  ETH/USD: buy on Binance (Global) at $3343.20, sell on Kraken (United States) at $3352.44, spread $9.24 (27.64 bps), size 10.00
+
+Crypto arbitrage benchmark
+  iterations: 10000
+  avg ns/op:  464.14
+  p50 ns:     256
+  p99 ns:     1024
+  p999 ns:    1024
 ```
 
 ## Interview Summary
@@ -119,6 +127,20 @@ USD-normalized arbitrage opportunities
 Short version:
 
 > Built a low-latency C++ crypto arbitrage detector that normalizes global exchange quotes into USD, adjusts for fees/slippage, and ranks the best cross-exchange opportunities.
+
+Longer version:
+
+> I built a low-latency crypto price comparison engine that ingests exchange quotes from different countries, converts them into a USD-standardized basis, applies trading costs, and identifies the best cross-exchange arbitrage opportunities. The main focus was fast normalization, cost-aware comparison, and measurable detection latency rather than exchange connectivity or UI.
+
+## GitHub About Suggestions
+
+Suggested repo description:
+
+> Low-latency C++ crypto arbitrage detector that normalizes global exchange prices into USD and ranks the best cross-exchange opportunities.
+
+Suggested tags:
+
+`c-plus-plus`, `low-latency`, `crypto`, `arbitrage`, `market-data`, `trading-systems`, `benchmarking`, `cmake`
 
 ## Next Improvements
 
