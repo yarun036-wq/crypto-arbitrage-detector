@@ -46,6 +46,46 @@ This engine solves that by converting everything into a common USD basis and com
 - `tests/crypto_arb_tests.cpp`
   Detector tests
 
+## Architecture
+
+```text
+Exchange Quotes
+(US, Europe, Japan, Korea, Global)
+             |
+             v
+   +------------------------+
+   | Quote Ingestion Layer  |
+   +------------------------+
+             |
+             v
+   +------------------------+
+   | FX Normalization       |
+   | convert all to USD     |
+   +------------------------+
+             |
+             v
+   +------------------------+
+   | Cost Adjustment        |
+   | fees + slippage +      |
+   | fixed execution cost   |
+   +------------------------+
+             |
+             v
+   +------------------------+
+   | Opportunity Detector   |
+   | best buy / best sell   |
+   +------------------------+
+             |
+      +------+------+
+      |             |
+      v             v
++-------------+ +----------------+
+| Bench Output | | Arbitrage      |
+| Latency      | | Opportunity    |
+| p50/p99/p999 | | USD + bps      |
++-------------+ +----------------+
+```
+
 ## Build
 
 ```bash
